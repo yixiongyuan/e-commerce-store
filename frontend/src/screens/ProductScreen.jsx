@@ -9,7 +9,6 @@ import {
   ListGroup,
   Card,
   Button,
-  ListGroupItem,
 } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import Rating from "../components/Rating";
