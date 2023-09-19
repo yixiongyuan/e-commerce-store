@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { Table, Form, Button, Row, Col } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { Toast, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import Message from "../components/Message";
 import Loader from "../components/Loader";
 import { FaTimes } from "react-icons/fa";
