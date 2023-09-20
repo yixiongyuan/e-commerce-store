@@ -19,7 +19,6 @@ const app = express();
 //body parser middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
 //cookie parser middleware
 app.use(cookieParser());
 
@@ -53,5 +52,5 @@ app.use(notFound);
 app.use(errorHandler);
 
 app.listen(port, () => {
-    console.log(`Server running on port ${port}`)
+    console.log(`Server running in ${process.env.NODE_ENV} mode on port ${port}`)
 });
