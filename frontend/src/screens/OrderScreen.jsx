@@ -144,6 +144,7 @@ const OrderScreen = () => {
             </ListGroup.Item>
 
             <ListGroup.Item>
+              {loadingPay && <Loader />}
               <h2>Payment Method</h2>
               <p>
                 <strong>Method: </strong>

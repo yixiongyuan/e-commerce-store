@@ -23,7 +23,7 @@ const ProductEditScreen = () => {
   const [countInStock, setCountInStock] = useState("");
   const [description, setDescription] = useState("");
 
-  const { data: product, isLoading, refetch, error } = useGetProductDetailQuery(
+  const { data: product, isLoading, error } = useGetProductDetailQuery(
     productId
   );
 
