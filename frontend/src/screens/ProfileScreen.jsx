@@ -26,9 +26,7 @@ const ProfileScreen = () => {
     { isLoading: loadingUpdateProfile },
   ] = useProfileMutation();
 
-  const [
-    { data: orders, isLoading, error: errorOrders },
-  ] = useGetMyOrdersQuery();
+  const { data: orders, isLoading, error: errorOrders } = useGetMyOrdersQuery();
 
   useEffect(() => {
     if (userInfo) {
@@ -84,6 +82,7 @@ const ProfileScreen = () => {
               onChange={(e) => setEmail(e.target.value)}
             ></Form.Control>
           </Form.Group>
+
           <Form.Group controlId="password" className="my-2">
             <Form.Label>Password</Form.Label>
             <Form.Control
@@ -111,6 +110,7 @@ const ProfileScreen = () => {
           {loadingUpdateProfile && <Loader />}
         </Form>
       </Col>
+
       <Col md={9}>
         <h2>My Orders</h2>
         {isLoading ? (
