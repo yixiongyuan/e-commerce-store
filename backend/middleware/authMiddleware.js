@@ -4,7 +4,6 @@ import User from "../models/userModel.js";
 
 
 //protect routes
-
 const protect = asyncHandler(async (req, res, next) => {
 
     let token;
@@ -16,8 +15,11 @@ const protect = asyncHandler(async (req, res, next) => {
     if (token) {
 
         try {
+
+            //decode the jwt and read data
             const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
+            //get user info without password
             req.user = await User.findById(decoded.userId).select('-password');
 
             next();

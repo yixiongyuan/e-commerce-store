@@ -35,6 +35,8 @@ const HomeScreen = () => {
           <h1>Latest Products</h1>
           <Row>
             {data.products.map((product) => (
+              // total width of 12, so 12/6 = 2 products per row on medium screens,
+              // 6 represents the width of the column
               <Col key={product._id} sm={12} md={6} lg={4} xl={3}>
                 <Product product={product} />
               </Col>

@@ -23,6 +23,7 @@ import {
 import { addToCart } from "../slices/cartSlice";
 
 const ProductScreen = () => {
+  // get id from the URL '/product/:id'
   const { id: productId } = useParams();
 
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ const ProductScreen = () => {
   ] = useCreateReviewMutation();
 
   const { userInfo } = useSelector((state) => state.auth);
+
   const addToCartHandler = () => {
     dispatch(addToCart({ ...product, qty }));
     navigate("/cart");
@@ -78,10 +80,12 @@ const ProductScreen = () => {
       ) : (
         <>
           <Meta title={product.name} />
+
           <Row>
             <Col md={5}>
               <Image src={product.image} alt={product.name} fluid />
             </Col>
+
             <Col md={4}>
               <ListGroup variant="flush">
                 <ListGroup.Item>
@@ -107,6 +111,7 @@ const ProductScreen = () => {
             <Col md={3}>
               <Card>
                 <ListGroup variant="flush">
+                  {/* price */}
                   <ListGroup.Item>
                     <Row>
                       <Col>Price:</Col>
@@ -116,6 +121,7 @@ const ProductScreen = () => {
                     </Row>
                   </ListGroup.Item>
 
+                  {/* status & stock */}
                   <ListGroup.Item>
                     <Row>
                       <Col>Status:</Col>
@@ -129,6 +135,7 @@ const ProductScreen = () => {
                     </Row>
                   </ListGroup.Item>
 
+                  {/* Form */}
                   {product.countInStock > 0 && (
                     <ListGroup.Item>
                       <Row>
@@ -139,6 +146,7 @@ const ProductScreen = () => {
                             value={qty}
                             onChange={(e) => setQty(Number(e.target.value))}
                           >
+                            {/* create an array of numbers from 1 to countInStock */}
                             {[...Array(product.countInStock).keys()].map(
                               (x) => (
                                 <option key={x + 1} value={x + 1}>
@@ -152,6 +160,7 @@ const ProductScreen = () => {
                     </ListGroup.Item>
                   )}
 
+                  {/* button to add to cart */}
                   <ListGroup.Item>
                     <Button
                       className="btn-block"
@@ -166,6 +175,7 @@ const ProductScreen = () => {
               </Card>
             </Col>
           </Row>
+
           <Row className="review">
             <Col md={6}>
               <h2>Reviews</h2>
